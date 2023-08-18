@@ -1,8 +1,26 @@
+import { useEffect, useState } from 'react'
 import logo from '../../assets/icon.svg'
 import PageToggle from '../PageToggle/PageToggle'
 import './Navbar.scss'
 
 export default function Navbar() {
+    const [scrolled, setScrolled] = useState(false)
+
+    useEffect(() => {
+        function handleScroll() {
+            if(window.scrollY > 0) {
+                setScrolled(true)
+            } else {
+                setScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return() => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     const navitems = [
         {
@@ -23,7 +41,7 @@ export default function Navbar() {
     ]
 
     return(
-        <header>
+        <header className={scrolled ? 'scrolled' : ''}>
             <span>
                 <img src={logo} alt="logo" title='Lillies Foodplace' />
                 <h3>Lillies</h3>

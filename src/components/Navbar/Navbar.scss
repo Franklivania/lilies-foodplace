@@ -11,6 +11,20 @@ header{
     justify-content: space-between;
     color: $white;
 
+    &.scrolled{
+        background: $white;
+
+        span{
+            color: $green;
+        }
+
+        nav{
+            :is(.home, .login){
+                color: $green;
+            }
+        }
+    }
+
     span{
         position: relative;
         display: flex;
@@ -33,6 +47,14 @@ header{
             &.active{
                 color: $cream;
             }
+        }
+
+        .signup{
+            padding: .7em 1.2em;
+            color: $green;
+            background: $cream;
+            border-radius: $small-radius;
+            font-weight: 600;
         }
     }
 }
