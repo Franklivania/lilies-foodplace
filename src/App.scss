@@ -12,6 +12,7 @@
 $green: #00302E;
 $cream: #E2B887;
 $white: #fefefe;
+$black: #141413;
 
 $height: 100vh;
 $width: 100%;
@@ -28,4 +29,8 @@ $font: 'Poppins', sans-serif;
 
 .App{
   font-family: $font !important;
+}
+
+::-webkit-scrollbar{
+  width: 0;
 }

@@ -7,7 +7,7 @@ export const HeroMain = styled.main`
     align-items: center;
     justify-content: space-between;
     gap: 15em;
-    margin: 8em 0;
+    padding: 8em 0;
 
     @media screen and ${devices.mobile}{
         flex-direction: column;

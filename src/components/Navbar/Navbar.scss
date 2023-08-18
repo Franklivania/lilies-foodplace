@@ -10,6 +10,8 @@ header{
     align-items: center;
     justify-content: space-between;
     color: $white;
+    z-index: 99;
+    transition: .5s ease;
 
     &.scrolled{
         background: $white;
