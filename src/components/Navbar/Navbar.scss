@@ -1,0 +1,38 @@
+@import '../../App.scss';
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $width;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $white;
+
+    span{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        color: $white;
+
+        img{
+            width: calc($width * 0.25);
+        }
+    }
+
+    nav{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        :is(.home, .login, .signup){
+            &.active{
+                color: $cream;
+            }
+        }
+    }
+}
