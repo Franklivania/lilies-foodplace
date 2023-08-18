@@ -1,0 +1,54 @@
+@import '../../App.scss';
+
+#form-input{
+    position: relative;
+    width: 100%;
+
+    input{
+        position: relative;
+        width: 100%;
+        outline: none;
+        resize: none;
+        border: 0.02em solid $cream;
+        border-radius: $small-radius;
+        font-size: $text;
+        padding: .5em 1em;
+
+        &:focus-within ~ label{
+            transform: translateY(-2em);
+            font-size: $small-text;
+            padding: 0.3em;
+            background: $white;
+            color: $green;
+        }
+
+        &:focus{
+            border: 0.02em solid $active;
+        }
+    }
+
+    label{
+        position: absolute;
+        top: 20%;
+        left: 6%;
+        pointer-events: none;
+        transition: .3s ease all;
+        color: $green;
+
+        &.active{
+            transform: translateY(-2em);
+            font-size: $small-text;
+            padding: 0.3em;
+            background: $white;
+            color: $green;
+        }
+    }
+
+    i{
+        position: absolute;
+        top: 30%;
+        right: 5%;
+        color: $green;
+        cursor: pointer;
+    }
+}
