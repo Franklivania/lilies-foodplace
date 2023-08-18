@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "title": "Juicy Burger",
+        "info": "The specialty in-house burger",
+        "text": "Savor the delight of our Juicy Burger – a symphony of flavors and textures that dance on your palate. Each bite is a burst of succulent, seasoned perfection. Satisfaction, redefined.",
+        "image": "/images/burger.svg",
+        "price": 1000,
+        "time": "10 - 15 Mins"
+    },
+    {
+        "id": 2,
+        "title": "Stir Fry Pasta",
+        "info": "The specialty in-house stir-fry pasta",
+        "text": "Indulge in the artistry of our Stir Fry Pasta, where vibrant vegetables and tender pasta unite in a harmonious blend. A tantalizing fusion that excites both eyes and taste buds.",
+        "image": "/images/pasta.svg",
+        "price": 1500,
+        "time": "20 - 25 Mins"
+    },
+    {
+        "id": 3,
+        "title": "Beef Rolls",
+        "info": "The specialty in-house savoury beef rolls",
+        "text": "Experience culinary craftsmanship with our Beef Rolls. Succulent beef wrapped in a medley of spices, creating a taste journey that unfolds with every savory bite. Elegance meets flavor in every roll.",
+        "image": "/images/beefrolls.svg",
+        "price": 1000,
+        "time": "10 - 20 Mins"
+    },
+    {
+        "id": 4,
+        "title": "Garnished Noodles",
+        "info": "The specialty in-house handmade supreme noodles.",
+        "text": "Elevate your senses with our Garnished Noodles, a masterpiece of culinary finesse. Delicate noodles adorned with a symphony of fresh ingredients, crafting a delightful melody of taste and presentation.",
+        "image": "/images/egg-noodles.svg",
+        "price": 2500,
+        "time": "10 - 15 Mins"
+    },
+    {
+        "id": 5,
+        "title": "Blueberry Toast and Bread",
+        "info": "The specialty in-house fundamental 'heavy' breakfast.",
+        "text": "Indulge in a morning symphony with our Blueberry Toast and Bread. Each slice exquisitely adorned with plump blueberries, offering a harmonious blend of sweetness and warmth that awakens your day.",
+        "image": "/images/egg-noodles.svg",
+        "price": 1000,
+        "time": "7 - 10 Mins"
+    },
+    {
+        "id": 5,
+        "title": "Garnished Rich Sauce",
+        "info": "The specialty in-house sauce to excite your buds",
+        "text": "Delight in the essence of our Garnished Rich Sauce. A velvety masterpiece, skillfully crafted with a blend of ingredients that creates a symphony of flavors, enhancing your culinary journey with every bite.",
+        "image": "/images/garnished-sauce.svg",
+        "price": 1000,
+        "time": "10 - 15 Mins"
+    }
+]

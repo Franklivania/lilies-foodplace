@@ -8,8 +8,7 @@ const styles = {
     span:{
         display: 'flex',
         gap: '1em'
-    },
-    
+    }
 }
 
 export default function Hero() {
