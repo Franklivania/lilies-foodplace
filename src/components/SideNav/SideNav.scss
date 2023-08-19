@@ -1,0 +1,76 @@
+@import '../../App.scss';
+
+#side-nav{
+    position: relative;
+    width: calc($width * 0.3);
+    height: 100%;
+    background: rgba($gray, 0.1);
+    padding: 3em 2em;
+    transition: .5s ease;
+
+    .expand-btn{
+        position: absolute;
+        right: 4%;
+        top: 4%;
+    }
+
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        margin: 0 0 3em 0;
+        color: $green;
+        font-size: $large-text;
+
+        img{
+            width: calc($width * 0.3);
+        }
+    }
+
+    nav{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        .db-btn{
+            gap: 1em;
+            width: 100%;
+            padding: 1em;
+            border-radius: $small-radius;
+            transition: .3s ease;
+            color: $gray;
+
+            &:hover{
+                background: rgba($gray, 0.6);
+            }
+
+            &.activated{
+                background: rgba($gray, 0.6);
+                color: $black;
+            }
+        }
+    }
+
+    &.expanded{
+        width: calc($width * 0.05);
+        padding: 3em 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .logo{
+            margin: 0 0 4em 0;
+        }
+
+        nav{
+
+            .db-btn{
+                display: grid;
+                place-items: center;
+                padding: 1em .5em;
+            }
+        }
+    }
+}

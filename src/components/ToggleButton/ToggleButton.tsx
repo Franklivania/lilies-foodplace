@@ -9,24 +9,24 @@ const TouchButton = styled.button`
     background: transparent;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    justify-content: center;
 `
 
 type ToggleTypes = {
     title?: string
     text?: string
+    icon: string
     onClick: () => void
     className?:string
     image?: string
     isActive: boolean
 }
 
-export default function ToggleButton({title, text, onClick, className, image, isActive}:ToggleTypes) {
+export default function ToggleButton({title, text, icon, onClick, className, image, isActive}:ToggleTypes) {
     return(
         <TouchButton onClick={onClick} className={`${className} ${isActive ? 'activated' : ''}`}>
+            {icon && <i className={icon}></i>}
             {text}
-            <img src={image} alt={title} title={title} />
+            {image && <img src={image} alt={title} title={title} />}
         </TouchButton>
     )
 }

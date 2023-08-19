@@ -18,9 +18,10 @@ type PageTypes = {
     className?: string
     title?: string
     link: string
+    image: string
 }
 
-export default function PageToggle({className, title, link}: PageTypes) {
+export default function PageToggle({className, title, image, link}: PageTypes) {
     const location = useLocation()
     const isActive:boolean = location.pathname === link 
 
@@ -33,6 +34,7 @@ export default function PageToggle({className, title, link}: PageTypes) {
             className={`${className} ${isActive ? 'active' : ''}`}
             onClick={handleClick}
         >
+            {image && <img src={image} alt="" />}
             {title}
         </PageButton>
     )
