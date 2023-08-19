@@ -1,0 +1,104 @@
+@import '../../App.scss';
+
+#food-info{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background: rgba($gray, 0.5);
+    z-index: 99;
+    transform: translateX(100%);
+    
+    &.closed{
+        transform: translate(0);
+        transition:  transform .5s ease;
+    }
+
+    main{
+        position: absolute;
+        right: 0;
+        width: calc($width * 0.4);
+        height: 100%;
+        background: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2em;
+        gap: 2em;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1000px) {
+            width: 70%;
+        }
+
+        .close-btn{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+
+        :is(h2, p){
+            text-align: center;
+        }
+
+        h2{
+            color: $green;
+        }
+
+        #process{
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p{
+                font-weight: 600;
+                color: $green;
+            }
+        }
+
+        aside{
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1em 0;
+
+            span{
+                position: relative;
+                display: flex;
+
+                :is(.count-btn, p){
+                    padding: .5em 1em;
+                    display: grid;
+                    place-items: center;
+                }
+
+                p{
+                    color: $green;
+                }
+
+                .count-btn{
+                    background: $cream;
+                    color: $green;
+
+                    &:hover{
+                        background: rgba($green, 0.6);
+                    }
+                }
+            }
+
+            .fi-add{
+                padding: 1em 2em;
+                background: $green;
+                color: $white;
+            }
+        }
+    }
+}

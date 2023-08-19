@@ -5,9 +5,10 @@ import './MealsDisplay.scss'
 
 type MealsDisplayTypes = {
     items: any
+    onClick: () => void
 }
 
-export default function MealsDisplay({items}:MealsDisplayTypes) {
+export default function MealsDisplay({items, onClick}:MealsDisplayTypes) {
     const addToCart:any = useContext(MealsContext)
 
     function handleAdd(){
@@ -15,12 +16,12 @@ export default function MealsDisplay({items}:MealsDisplayTypes) {
     }
 
   return (
-    <div id='meals-display'>
+    <div id='meals-display' onClick={onClick}>
         <img src={items.image} alt="" />
         <h2>{items.title}</h2>
         <p>{items.info}</p>
         <span>
-            <p>{items.price}</p>
+            <p>NGN: {items.price}</p>
             <ToggleButton onClick={handleAdd} text='Add to cart' className='md-add'/>
         </span>
     </div>

@@ -12,9 +12,16 @@ export default function ContextProvider( {children}: ContextTypes ) {
     const [state, dispatch] = useReducer( reducer, initalState )
 
     function addToCart(meal:any) {
-        const updatedCart = state.meals
-        updatedCart.push(meal)
+        const updatedCart = [...state.meals]
+        const existingItem = updatedCart.find((item: any) => item.title === meal.title);
 
+        if (existingItem) {
+            existingItem.count += 1;
+        } else {
+            meal.count = 1;
+            updatedCart.push(meal);
+        }
+        
         updatedPrice(updatedCart)
 
         dispatch({

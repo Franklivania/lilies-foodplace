@@ -31,9 +31,9 @@ export default function SideNav() {
     }
 
   return (
-    <menu id="side-nav" className={expand ? 'expanded' : ''}>
+    <menu id="side-nav" className={!expand ? 'expanded' : ''}>
         <ToggleButton
-            icon={`fa-solid fa-${expand ? 'angles-right' : 'angles-left'}`}
+            icon={`fa-solid fa-${expand ? 'angles-left' : 'angles-right'}`}
             onClick={handleExpand}
             className='expand-btn'
             isActive
@@ -41,7 +41,7 @@ export default function SideNav() {
 
         <PageToggle
             image={logo}
-            title={!expand ? 'Lilies' :  ''}
+            title={expand ? 'Lilies' :  ''}
             link='/'
             className='logo'
         />
@@ -49,28 +49,28 @@ export default function SideNav() {
         <nav>
             <ToggleButton
                 icon='fa-solid fa-home'
-                text={!expand ? 'DashBoard' : ''}
+                text={expand ? 'DashBoard' : ''}
                 onClick={() => handleOpen(0)}
                 className='db-btn home'
                 isActive={openContent === 0}
             />
             <ToggleButton
                 icon='fa-solid fa-user'
-                text={!expand ? 'Your Profile' : ''}
+                text={expand ? 'Your Profile' : ''}
                 onClick={() => handleOpen(1)}
                 className='db-btn profile'
                 isActive={openContent === 1}
             />
             <ToggleButton
                 icon='fa-solid fa-calendar'
-                text={!expand ? 'Orders' : ''}
+                text={expand ? 'Orders' : ''}
                 onClick={() => handleOpen(2)}
                 className='db-btn orders'
                 isActive={openContent === 2}
             />
             <ToggleButton
                 icon='fa-solid fa-bookmark'
-                text={!expand ? 'Cart' : ''}
+                text={expand ? 'Cart' : ''}
                 onClick={() => handleOpen(3)}
                 className='db-btn cart'
                 isActive={openContent === 3}
