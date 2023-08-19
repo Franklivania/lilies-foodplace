@@ -1,6 +1,5 @@
 import { styled } from 'styled-components'
 import { useLocation } from 'react-router-dom'
-import { constants } from '../../styledqueries/styledqueries'
 
 const PageButton = styled.button`
     width: max-content;
@@ -8,8 +7,11 @@ const PageButton = styled.button`
     outline: none;
     background: transparent;
     font-size: 1em;
-    color: ${constants.white};
+    font-weight: 600;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 type PageTypes = {

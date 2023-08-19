@@ -8,6 +8,9 @@ const TouchButton = styled.button`
     font-size: ${constants.text};
     background: transparent;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 type ToggleTypes = {

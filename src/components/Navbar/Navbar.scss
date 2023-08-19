@@ -45,6 +45,10 @@ header{
         align-items: center;
         gap: 1em;
 
+        .login{
+            color: $white;
+        }
+
         :is(.home, .login, .signup){
             &.active{
                 color: $cream;
