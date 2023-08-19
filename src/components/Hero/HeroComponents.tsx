@@ -6,8 +6,15 @@ export const HeroMain = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15em;
-    padding: 8em 0;
+    padding: 8em 3em;
+    
+    @media screen and ${devices.desktop}{
+        gap: 15em;
+    }
+
+    @media screen and ${devices.tablet}{
+        gap: 10em;
+    }
 
     @media screen and ${devices.mobile}{
         flex-direction: column;

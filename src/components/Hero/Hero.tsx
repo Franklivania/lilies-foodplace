@@ -26,10 +26,10 @@ export default function Hero() {
 
                 <HeadSpan style={styles.span}>
                     <DownloadButton>
-                        <BtnImage src={google} />
+                        <BtnImage src={google} alt='googleplay store' />
                     </DownloadButton>
                     <DownloadButton>
-                        <BtnImage src={ios} />
+                        <BtnImage src={ios} alt='apple store'/>
                     </DownloadButton>
                 </HeadSpan>
             </Aside>

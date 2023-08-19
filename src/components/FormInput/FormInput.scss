@@ -3,27 +3,30 @@
 #form-input{
     position: relative;
     width: 100%;
-
+    height: calc($wk-height * 0.03);
+    display: flex;
+    align-items: flex-end;
+    background: $white;
+    border: 0.02em solid $cream;
+    border-radius: $small-radius;
+    
     input{
         position: relative;
         width: 100%;
+        height: 80%;
         outline: none;
         resize: none;
-        border: 0.02em solid $cream;
+        border: none;
         border-radius: $small-radius;
         font-size: $text;
         padding: .5em 1em;
+        overflow: hidden;
 
         &:focus-within ~ label{
-            transform: translateY(-2em);
+            transform: translateY(-1.3em);
             font-size: $small-text;
             padding: 0.3em;
-            background: $white;
             color: $green;
-        }
-
-        &:focus{
-            border: 0.02em solid $active;
         }
     }
 
@@ -33,13 +36,12 @@
         left: 6%;
         pointer-events: none;
         transition: .3s ease all;
-        color: $green;
+        color: $gray;
 
         &.active{
-            transform: translateY(-2em);
+            transform: translateY(-1.3em);
             font-size: $small-text;
             padding: 0.3em;
-            background: $white;
             color: $green;
         }
     }

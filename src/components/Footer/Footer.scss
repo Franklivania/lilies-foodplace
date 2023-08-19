@@ -1,0 +1,74 @@
+@import '../../App.scss';
+
+footer{
+    position: relative;
+    width: 100%;
+    background: $black;
+    color: $white;
+    padding: 3em 0;
+    font-family: $ft-font !important;
+
+    main{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        margin:  0 0 3em 0;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            padding: 0 3em;
+            gap: 2em;
+        }
+
+        span{
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+
+            h3{
+                font-weight: 400;
+            }
+
+            ul{
+                li{
+                    list-style: none;
+                    font-weight: 200;
+                }
+            }
+        }
+    }
+
+    section{
+        position: relative;
+        width: 100%;
+        padding: 2em 0 0 0;
+        border-top: 0.02em solid rgba($gray, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            padding: 2em 3em;
+            gap: 2em;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        span{
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            a{
+                color: $white;
+                padding: .5em .8em;
+                background: rgba($gray, 0.3);
+                border-radius: $radius;
+            }
+        }
+    }
+}

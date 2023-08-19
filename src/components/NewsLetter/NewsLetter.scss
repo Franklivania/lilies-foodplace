@@ -1,0 +1,54 @@
+@import '../../App.scss';
+
+#newsletter{
+    width: $width;
+    padding: 3em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: $white;
+
+    @media screen and (max-width: 600px){
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    aside{
+        position: relative;
+        width: calc($width * 0.4);
+        @media screen and (max-width: 600px){
+            width: 100%;
+        }
+
+        h2{
+            color: $cream;
+        }
+    }
+
+    form{
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        width: calc($width * 0.4);
+
+        @media screen and (max-width: 600px){
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .news-btn{
+            position: relative;
+            width: 60%;
+            background: $cream;
+            color: $green;
+            padding: 1em 0;
+            border-radius: $small-radius;
+            font-weight: 600;
+
+            @media screen and (max-width: 600px){
+                width: 100%;
+            }
+        }
+    }
+}

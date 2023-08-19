@@ -1,4 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/inter');
 
 *,
 *::before,
@@ -12,7 +13,9 @@
 $green: #00302E;
 $cream: #E2B887;
 $white: #fefefe;
-$black: #141413;
+$black: #0B0D17;
+$gray: #B2B2B2;
+
 
 $height: 100vh;
 $width: 100%;
@@ -27,6 +30,7 @@ $large-text: 2.5em;
 $extra-large-text: 14em;
 
 $font: 'Poppins', sans-serif;
+$ft-font: 'Inter', sans-serif;
 
 .App{
   font-family: $font !important;
