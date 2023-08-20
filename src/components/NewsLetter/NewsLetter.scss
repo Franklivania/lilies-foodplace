@@ -45,6 +45,8 @@
             padding: 1em 0;
             border-radius: $small-radius;
             font-weight: 600;
+            align-items: center;
+            justify-content: center;
 
             @media screen and (max-width: 600px){
                 width: 100%;

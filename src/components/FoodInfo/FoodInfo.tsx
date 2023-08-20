@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState, useEffect } from 'react'
 import { MealsContext } from '../Context/Context'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import './FoodInfo.scss'
@@ -13,6 +13,7 @@ export default function FoodInfo({closeInfo, className, items}: CartTypes) {
 
   const {addToCart} :any = useContext(MealsContext)
   const [itemCount, setItemCount] = useState(0)
+  const modalRef:any = useRef(null)
 
   function handleAdd(){
     addToCart({ ...items, count: itemCount })
@@ -26,8 +27,21 @@ export default function FoodInfo({closeInfo, className, items}: CartTypes) {
     }
   }
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeInfo();
+      }
+    }
+
+    window.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [closeInfo])
+
   return (
-    <section id="food-info" className={closeInfo ? 'closed' : ''}>
+    <section id="food-info" ref={modalRef} className={`food-info ${closeInfo ? 'closed' : ''}`}>
       
       <main>
         <ToggleButton

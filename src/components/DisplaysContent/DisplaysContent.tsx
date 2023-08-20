@@ -28,6 +28,7 @@ export default function DisplaysContent() {
             <FoodInfo
                 closeInfo={handleActiveClose}
                 items={data[activeIndex]}
+                className={activeIndex ? 'active' : ''}
             />
         )}
     </main>
