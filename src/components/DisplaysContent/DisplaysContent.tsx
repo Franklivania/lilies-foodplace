@@ -13,7 +13,7 @@ type DisplaysContentType = {
 
 export default function DisplaysContent({openContent, setOpenContent}: DisplaysContentType) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null)
-    const {meals}: any = useContext(MealsContext)
+    const {meals}:any = useContext(MealsContext)
 
     function handleActive(index: any){
         setActiveIndex(index)

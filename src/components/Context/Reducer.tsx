@@ -6,6 +6,9 @@ export const initialState = {
 type Meal = {
     title: string;
     price: number;
+    count: number;
+    id: any;
+    image: string;
 };
 
 type State = {

@@ -13,7 +13,7 @@ type FoodInfoTypes = {
 
 export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
 
-  const {addToCart} :any = useContext(MealsContext)
+  const {addToCart} = useContext(MealsContext)
   const [itemCount, setItemCount] = useState(1)
   const modalRef:any = useRef(null)
 
@@ -25,10 +25,9 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
       });
     } else {
         addToCart({ ...items, count: itemCount });
-        
         // Show success toast for adding the meal to the cart
         toast.success(`Your ${items.title} x ${itemCount}  has been added to the cart`, {
-            position: toast.POSITION.TOP_RIGHT
+          position: toast.POSITION.TOP_RIGHT
       });
     }
   }
@@ -97,7 +96,6 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
           />
         </aside>
       </main>
-
     </div>
   )
 }

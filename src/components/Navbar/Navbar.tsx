@@ -52,6 +52,7 @@ export default function Navbar() {
                         key={items.id}
                         className={items.id}
                         {...items}
+                        image=''
                     />
                 )))}
             </nav>

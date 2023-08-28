@@ -8,6 +8,9 @@ type ContextTypes = {
 type Meal = {
     title: string;
     price: number;
+    count: number;
+    id: any;
+    image: string;
 };
 
 type State = {
@@ -49,11 +52,11 @@ export default function ContextProvider({ children }: ContextTypes) {
 
     const removeFromCart = (meal: Meal) => {
         const updatedCart = state.meals.filter(
-            currentMeal => currentMeal.title !== meal.title
+            currentMeal => currentMeal.id !== meal.id
         );
-
+    
         updatedPrice(updatedCart);
-
+    
         dispatch({
             type: 'remove',
             payload: updatedCart
@@ -63,7 +66,7 @@ export default function ContextProvider({ children }: ContextTypes) {
     const updatedPrice = (meals: Meal[]) => {
         let total = 0;
         meals.forEach(meal => {
-            total += meal.price;
+            total += meal.price * meal.count;
         });
 
         dispatch({

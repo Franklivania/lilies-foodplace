@@ -9,15 +9,15 @@ type CartTypes = {
     items: any[]
 }
 
-export default function Cart({items, closeCart, className}: CartTypes) {
-    const {meals, removeFromCart, total}: any = useContext(MealsContext)
+export default function Cart({closeCart, className}: CartTypes) {
+    const {removeFromCart, total, meals} = useContext(MealsContext)
 
     function handleRemove(meal: any){
         removeFromCart(meal);
     }
 
   return (
-    <div id="cart">
+    <div id="cart" className={className}>
         <main>
             <h2>Your Cart</h2>
             <ToggleButton
@@ -34,25 +34,24 @@ export default function Cart({items, closeCart, className}: CartTypes) {
                     <th>Sub Total</th>
                 </tr>
             
-                {items.map((items) => (
-                    <tr>
-                        <td className='items'>
-                            <img src={items.image} alt={items.title} />
+                {meals.map((item) => (
+                    <tr key={item.id}>
+                        <td className="items">
+                            <img src={item.image} alt={item.title} />
                             <span>
-                                <h3>{items.title}</h3>
+                                <h3>{item.title}</h3>
                                 <ToggleButton
-                                    text='Remove'
-                                    className='remove'
-                                    onClick={() => handleRemove(items)}
+                                    text="Remove"
+                                    className="remove"
+                                    onClick={() => handleRemove(item)}
                                 />
                             </span>
                         </td>
-                        <td>{items.count}</td>
-                        <td>{items.price}</td>
-                        <td>{items.count * items.price}</td>
+                        <td>{item.count}</td>
+                        <td>{item.price}</td>
+                        <td>{item.count * item.price}</td>
                     </tr>
                 ))}
-                
             </table>
 
             <p>Total: <span>N {total}</span></p>
