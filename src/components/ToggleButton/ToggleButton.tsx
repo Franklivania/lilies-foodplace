@@ -14,11 +14,11 @@ const TouchButton = styled.button`
 type ToggleTypes = {
     title?: string
     text?: string
-    icon: string
+    icon?: string
     onClick: () => void
     className?:string
     image?: string
-    isActive: boolean
+    isActive?: boolean
 }
 
 export default function ToggleButton({title, text, icon, onClick, className, image, isActive}:ToggleTypes) {

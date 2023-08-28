@@ -1,0 +1,93 @@
+@import '../../App.scss';
+
+#cart{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background: rgba($gray, 0.5);
+    z-index: 99;
+
+    main{
+        position: absolute;
+        right: 0;
+        width: calc($width * 0.5);
+        height: 100%;
+        background: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2em;
+        gap: 2em;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1000px) {
+            width: 70%;
+        }
+
+        h2{
+            font-weight: 600;
+            color: $green;
+            margin:  2em 0 0 0;
+        }
+
+        .close-btn{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+
+        table{
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+                
+            tr{
+                position: relative;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                th{
+                    font-weight: 300;
+                }
+
+                .items{
+                    width: 40%;
+                    align-self: flex-start;
+                    text-align: left;
+
+                    img{
+                        width: calc($wk-width * 0.1);
+                    }
+
+                    .remove{
+                        color: $red;
+                        font-size: calc($small-text * 1.5);
+                    }
+                }
+            }
+        }
+
+        p{
+            margin: 0 0 0 auto;
+            span{
+                font-weight: 700;
+            }
+        }
+
+        .checkout{
+            width: 100%;
+            padding: 1em 0;
+            background: $green;
+            color: $cream;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 auto 0;
+        }
+    }
+}

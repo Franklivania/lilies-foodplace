@@ -3,6 +3,7 @@ import { constants } from '../../styledqueries/styledqueries'
 import SideNav from '../../components/SideNav/SideNav'
 import TopNav from '../../components/TopNav/TopNav'
 import DisplaysContent from '../../components/DisplaysContent/DisplaysContent'
+import { useState } from 'react'
 
 const DashboardContainer = styled.main`
     width: ${constants.width};
@@ -23,12 +24,13 @@ const DashBoardContent = styled.section`
 `
 
 export default function DashBoard() {
+    const [openContent, setOpenContent] = useState(0)
   return (
     <DashboardContainer>
-        <SideNav />
+        <SideNav openContent={openContent} setOpenContent={setOpenContent} />
         <DashBoardContent>
             <TopNav />
-            <DisplaysContent />
+            <DisplaysContent openContent={openContent} setOpenContent={setOpenContent}/>
         </DashBoardContent>
     </DashboardContainer>
   )

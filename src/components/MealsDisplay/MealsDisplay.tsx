@@ -9,7 +9,7 @@ type MealsDisplayTypes = {
 }
 
 export default function MealsDisplay({items, onClick}:MealsDisplayTypes) {
-    const addToCart:any = useContext(MealsContext)
+    const {addToCart}:any = useContext(MealsContext)
 
     function handleAdd(){
         addToCart(items)
@@ -17,7 +17,7 @@ export default function MealsDisplay({items, onClick}:MealsDisplayTypes) {
 
   return (
     <div id='meals-display' onClick={onClick}>
-        <img src={items.image} alt="" />
+        <img src={items.image} alt={items.title} title={items.title} />
         <h2>{items.title}</h2>
         <p>{items.info}</p>
         <span>

@@ -21,7 +21,8 @@ export default function Hero() {
                 </HeadText>
 
                 <Paragraph>
-                    Browse from our list of specials to place your order and have food delivered to you in no time. Affordable, tasty and fast
+                    Browse from our list of specials to place your order and have
+                    food delivered to you in no time. Affordable, tasty and fast
                 </Paragraph>
 
                 <HeadSpan style={styles.span}>

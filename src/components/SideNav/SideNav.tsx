@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import logo from '../../assets/icon.svg'
-import './SideNav.scss'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import PageToggle from '../PageToggle/PageToggle'
+import './SideNav.scss'
 
-export default function SideNav() {
-    const [openContent, setOpenContent] = useState(0)
+type SideNavTypes = {
+    openContent: number
+    setOpenContent: (openContent: number) => void
+}
+
+export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
     const [expand, setExpand] = useState(false)
 
     useEffect(() => {

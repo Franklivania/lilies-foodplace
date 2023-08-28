@@ -1,56 +1,72 @@
 import { useContext, useRef, useState, useEffect } from 'react'
 import { MealsContext } from '../Context/Context'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import './FoodInfo.scss'
 
-type CartTypes = {
+type FoodInfoTypes = {
   closeInfo: any
   className?: string
   items: any
 }
 
-export default function FoodInfo({closeInfo, className, items}: CartTypes) {
+export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
 
   const {addToCart} :any = useContext(MealsContext)
-  const [itemCount, setItemCount] = useState(0)
+  const [itemCount, setItemCount] = useState(1)
   const modalRef:any = useRef(null)
 
-  function handleAdd(){
-    addToCart({ ...items, count: itemCount })
+  function handleAdd() {
+    if (!items.title) {
+      // No meal title provided, show error toast
+      toast.error(`Please pick a meal`, {
+          position: toast.POSITION.TOP_RIGHT
+      });
+    } else {
+        addToCart({ ...items, count: itemCount });
+        
+        // Show success toast for adding the meal to the cart
+        toast.success(`Your ${items.title} x ${itemCount}  has been added to the cart`, {
+            position: toast.POSITION.TOP_RIGHT
+      });
+    }
   }
 
   function handleCount(action: 'increment' | 'decrement') {
     if (action === 'increment') {
       setItemCount(itemCount + 1);
-    } else if (action === 'decrement' && itemCount > 0) {
+    } else if (action === 'decrement' && itemCount > 1) {
       setItemCount(itemCount - 1);
     }
   }
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+    const handleOutsideClick = ({event}:any) => {
+      if (!modalRef.current.contains(event.target)) {
         closeInfo();
       }
-    }
-
-    window.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      window.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [closeInfo])
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+
+}, [closeInfo]);
 
   return (
-    <section id="food-info" ref={modalRef} className={`food-info ${closeInfo ? 'closed' : ''}`}>
-      
-      <main>
+    <div id="food-info" className={`food-info ${closeInfo ? 'closed' : ''} ${className}`}>
+      <ToastContainer />
+      <main ref={modalRef}>
         <ToggleButton
-            onClick={closeInfo}
-            icon='fa-solid fa-x fa-2x'
-            className='close-btn'
+          onClick={closeInfo}
+          icon='fa-solid fa-x fa-2x'
+          className={`close-btn ${closeInfo ? 'closed' : ''} `}
         />
 
-        <img src={items.image} alt="" />
+        <img src={items.image} alt={items.title} title={items.title} />
         <h2>{items.title}</h2>
         <p>{items.text}</p>
 
@@ -82,6 +98,6 @@ export default function FoodInfo({closeInfo, className, items}: CartTypes) {
         </aside>
       </main>
 
-    </section>
+    </div>
   )
 }
