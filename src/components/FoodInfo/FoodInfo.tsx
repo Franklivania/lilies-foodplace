@@ -41,8 +41,8 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
   }
 
   useEffect(() => {
-    const handleOutsideClick = ({event}:any) => {
-      if (!modalRef.current.contains(event.target)) {
+    const handleOutsideClick = (e:MouseEvent) => {
+      if (!modalRef.current.contains(e.target)) {
         closeInfo();
       }
     };
@@ -53,16 +53,18 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
 
-}, [closeInfo]);
+  }, [closeInfo]);
 
   return (
     <div id="food-info" className={`food-info ${closeInfo ? 'closed' : ''} ${className}`}>
       <ToastContainer />
+
       <main ref={modalRef}>
         <ToggleButton
           onClick={closeInfo}
           icon='fa-solid fa-x fa-2x'
           className={`close-btn ${closeInfo ? 'closed' : ''} `}
+          children=''
         />
 
         <img src={items.image} alt={items.title} title={items.title} />
@@ -80,12 +82,14 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
               onClick={() => handleCount("decrement")}
               icon='fa-solid fa-minus'
               className="count-btn"
+              children=''
             />
             <p>{itemCount}</p>
             <ToggleButton
               onClick={() => handleCount("increment")}
               icon='fa-solid fa-plus'
               className="count-btn"
+              children=''
             />
           </span>
 
@@ -93,6 +97,7 @@ export default function FoodInfo({closeInfo, className, items}: FoodInfoTypes) {
             onClick={handleAdd}
             text='Add to Cart'
             className='fi-add'
+            children=''
           />
         </aside>
       </main>

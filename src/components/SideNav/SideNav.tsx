@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import logo from '../../assets/icon.svg'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import PageToggle from '../PageToggle/PageToggle'
 import './SideNav.scss'
+import { MealsContext } from '../Context/Context'
 
 type SideNavTypes = {
     openContent: number
@@ -34,13 +35,15 @@ export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
         localStorage.setItem('openContent', String(index));
     }
 
+    const {meals} = useContext(MealsContext)
+    const cartItemCount = meals.reduce((totalCount, meal) => totalCount + meal.count, 0)
+
   return (
     <menu id="side-nav" className={!expand ? 'expanded' : ''}>
         <ToggleButton
             icon={`fa-solid fa-${expand ? 'angles-left' : 'angles-right'}`}
             onClick={handleExpand}
             className='expand-btn'
-            isActive
         />
 
         <PageToggle
@@ -78,7 +81,11 @@ export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
                 onClick={() => handleOpen(3)}
                 className='db-btn cart'
                 isActive={openContent === 3}
-            />
+            >
+                {cartItemCount > 0 && (
+                    <span className="cart-count">{cartItemCount}</span>
+                )}
+            </ToggleButton>
         </nav>
     </menu>
   )

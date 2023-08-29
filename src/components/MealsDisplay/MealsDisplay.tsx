@@ -22,7 +22,7 @@ export default function MealsDisplay({items, onClick}:MealsDisplayTypes) {
         <p>{items.info}</p>
         <span>
             <p>NGN: {items.price}</p>
-            <ToggleButton onClick={handleAdd} text='Add to cart' className='md-add'/>
+            <ToggleButton onClick={handleAdd} text='Add to cart' className='md-add' children=''/>
         </span>
     </div>
   )

@@ -6,11 +6,11 @@ type ContextTypes = {
 };
 
 type Meal = {
-    title: string;
+    title?: string;
     price: number;
     count: number;
-    id: any;
-    image: string;
+    id?: any;
+    image?: string;
 };
 
 type State = {
@@ -44,6 +44,8 @@ export default function ContextProvider({ children }: ContextTypes) {
         const updatedCart = [...state.meals, meal];
         updatedPrice(updatedCart);
 
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
+
         dispatch({
             type: 'add',
             payload: updatedCart
@@ -54,8 +56,9 @@ export default function ContextProvider({ children }: ContextTypes) {
         const updatedCart = state.meals.filter(
             currentMeal => currentMeal.id !== meal.id
         );
-    
         updatedPrice(updatedCart);
+
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
     
         dispatch({
             type: 'remove',

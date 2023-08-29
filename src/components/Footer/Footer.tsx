@@ -12,7 +12,7 @@ export default function Footer() {
                 <h3>Company</h3>
                 {data.Company.map(((items, index) => (
                     <ul key={index}>
-                        <li>{...items}</li>
+                        <li>{items}</li>
                     </ul>
                 )))}
             </span>
@@ -20,7 +20,7 @@ export default function Footer() {
                 <h3>Support</h3>
                 {data.Support.map(((items, index) => (
                     <ul key={index}>
-                        <li>{...items}</li>
+                        <li>{items}</li>
                     </ul>
                 )))}
             </span>
@@ -28,7 +28,7 @@ export default function Footer() {
                 <h3>Legal</h3>
                 {data.Legal.map(((items, index) => (
                     <ul key={index}>
-                        <li>{...items}</li>
+                        <li>{items}</li>
                     </ul>
                 )))}
             </span>

@@ -15,18 +15,20 @@ type ToggleTypes = {
     title?: string
     text?: string
     icon?: string
-    onClick: () => void
+    onClick?: () => void
     className?:string
     image?: string
     isActive?: boolean
+    children?: any
 }
 
-export default function ToggleButton({title, text, icon, onClick, className, image, isActive}:ToggleTypes) {
+export default function ToggleButton({title, text, icon, onClick, className, children, image, isActive}:ToggleTypes) {
     return(
         <TouchButton onClick={onClick} className={`${className} ${isActive ? 'activated' : ''}`}>
             {icon && <i className={icon}></i>}
             {text}
             {image && <img src={image} alt={title} title={title} />}
+            {children}
         </TouchButton>
     )
 }

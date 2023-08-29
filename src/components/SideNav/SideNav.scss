@@ -75,6 +75,20 @@
                 color: $black;
             }
         }
+
+        .cart{
+            position: relative;
+        }
+
+        .cart-count{
+            position: absolute;
+            top: 20%;
+            right: 5%;
+            background: $cream;
+            color: $black;
+            padding: .3em .5em;
+            border-radius: $small-radius;
+        }
     }
 
     &.expanded{

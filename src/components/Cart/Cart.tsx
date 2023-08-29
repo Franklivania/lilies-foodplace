@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useRef, useEffect } from 'react'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import './Cart.scss'
 import { MealsContext } from '../Context/Context'
@@ -15,15 +15,30 @@ export default function Cart({closeCart, className}: CartTypes) {
     function handleRemove(meal: any){
         removeFromCart(meal);
     }
+    const cartRef:any = useRef()
+
+    useEffect(() => {
+      const handleOutsideClick = (e:MouseEvent) => {
+        if(!cartRef.current.contains(e.target)) {
+            closeCart()
+        }
+      }
+      document.addEventListener('mousedown', handleOutsideClick)
+      return() => {
+        document.removeEventListener("mousedown",handleOutsideClick )
+      }
+    }, [closeCart])
+    
 
   return (
     <div id="cart" className={className}>
-        <main>
+        <main ref={cartRef}>
             <h2>Your Cart</h2>
             <ToggleButton
                 onClick={closeCart}
                 icon='fa-solid fa-x fa-2x'
                 className='close-btn'
+                children=''
             />
 
             <table>
@@ -44,6 +59,7 @@ export default function Cart({closeCart, className}: CartTypes) {
                                     text="Remove"
                                     className="remove"
                                     onClick={() => handleRemove(item)}
+                                    children=''
                                 />
                             </span>
                         </td>
@@ -59,6 +75,7 @@ export default function Cart({closeCart, className}: CartTypes) {
             <ToggleButton
                 text='Checkout'
                 className='checkout'
+                children=''
             />
         </main>
     </div>
