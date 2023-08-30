@@ -5,9 +5,11 @@ type FormTypes = {
     type?: string
     title?: string
     id: string
+    pattern?: string
+    maxLength?: number
 }
 
-export default function FormInput({type, title, id}: FormTypes) {
+export default function FormInput({type, title, id, pattern, maxLength}: FormTypes) {
     const [formState, setFormState] = useState({
         [id]: '',
     })
@@ -35,6 +37,8 @@ export default function FormInput({type, title, id}: FormTypes) {
             id={`input ${id}`}
             value={formState[id]}
             onChange={handleChange}
+            pattern={pattern}
+            maxLength={maxLength}
         />
         <label
             htmlFor={id}

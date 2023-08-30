@@ -15,7 +15,7 @@ type ToggleTypes = {
     title?: string
     text?: string
     icon?: string
-    onClick?: () => void
+    onClick?: any
     className?:string
     image?: string
     isActive?: boolean

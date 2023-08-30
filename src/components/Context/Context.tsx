@@ -13,16 +13,6 @@ type Meal = {
     image?: string;
 };
 
-type State = {
-    total: number;
-    meals: Meal[];
-};
-
-type Action =
-    | { type: 'add'; payload: Meal }
-    | { type: 'remove'; payload: Meal }
-    | { type: 'updatePrice'; payload: number };
-
 type ContextValue = {
     total: number;
     meals: Meal[];

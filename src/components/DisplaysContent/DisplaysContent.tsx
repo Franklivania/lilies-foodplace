@@ -5,6 +5,7 @@ import MealsDisplay from '../MealsDisplay/MealsDisplay'
 import FoodInfo from '../FoodInfo/FoodInfo'
 import Cart from '../Cart/Cart'
 import './DisplaysContent.scss'
+import Checkout from '../Checkout/Checkout'
 
 type DisplaysContentType = {
     openContent: number
@@ -13,6 +14,7 @@ type DisplaysContentType = {
 
 export default function DisplaysContent({openContent, setOpenContent}: DisplaysContentType) {
     const [activeIndex, setActiveIndex] = useState<number | null>(null)
+    const [openCheckout, setOpenCheckout] = useState(false)
     const {meals}:any = useContext(MealsContext)
 
     function handleActive(index: any){
@@ -37,7 +39,7 @@ export default function DisplaysContent({openContent, setOpenContent}: DisplaysC
             <FoodInfo
                 closeInfo={handleActiveClose}
                 items={data[activeIndex]}
-                className={activeIndex ? 'active' : ''}
+                className={activeIndex !== null ? 'active' : ''}
             />
         )}
 
@@ -45,8 +47,14 @@ export default function DisplaysContent({openContent, setOpenContent}: DisplaysC
             <Cart
                 items={meals.map((item:any) => item.meal)}
                 closeCart={() =>  setOpenContent(0)}
+                setOpenCheckout={setOpenCheckout}
             />
         )}
+
+        <Checkout
+            closeCheck={() => setOpenCheckout(!openCheckout)}
+            className={openCheckout ? 'active-checkout' : ''}
+        />
     </main>
   )
 }

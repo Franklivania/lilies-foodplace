@@ -24,13 +24,14 @@
 
         @media screen and (max-width: 600px){
             position: fixed;
-            top: 15%;
+            top: 13%;
             left: 0;
-            background: $black;
+            background: $white;
             padding: 1em;
             border-top-right-radius: $radius;
             border-bottom-right-radius: $radius;
-            color: $white;
+            color: $black;
+            transition: .3s ease;
         }
     }
 
@@ -104,7 +105,12 @@
 
         @media screen and (max-width: 600px){
             width: 0;
-            padding: 0;  
+            padding: 0;
+
+            .expand-btn{
+                background: $black;
+                color: $gray;
+            }
         }
 
         .logo{

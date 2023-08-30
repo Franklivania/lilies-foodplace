@@ -25,4 +25,9 @@
             transform: translate(0);
         }
     }
+
+    #checkout.active-checkout{
+        display: block;
+        transform: translate(0);
+    }
 }

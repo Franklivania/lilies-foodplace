@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react'
+import { MealsContext } from '../Context/Context'
 import logo from '../../assets/icon.svg'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import PageToggle from '../PageToggle/PageToggle'
 import './SideNav.scss'
-import { MealsContext } from '../Context/Context'
 
 type SideNavTypes = {
     openContent: number
@@ -23,7 +23,7 @@ export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
         if (storedOpenContent) {
             setOpenContent(Number(storedOpenContent));
         }
-    }, [])
+    }, [setOpenContent])
 
     function handleExpand(){
         localStorage.setItem('expand', JSON.stringify(expand))

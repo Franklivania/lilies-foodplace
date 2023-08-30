@@ -1,0 +1,65 @@
+@import '../../App.scss';
+
+#checkout{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: $height;
+    width: $width;
+    background: rgba($gray, 0.5);
+    z-index: 99;
+    transform: translateX(200%);
+    transition: transform .5s ease;
+    display: none;
+
+    main{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc($width * 0.4);
+        height: 100%;
+        padding: 2em;
+        background: $white;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1000px) {
+            width: 70%;
+        }
+
+        .close-check{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            color: $green;
+        }
+
+        h2{
+            color: $green;
+            margin: 3em 0 0 0;
+        }
+
+        form{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1em;
+            margin: 3em 0 0 0;
+
+            .checkout-pay{
+                width: 100%;
+                padding: 1em 0;
+                background: $green;
+                color: $cream;
+                align-items: center;
+                justify-content: center;
+                margin: 0 0 auto 0;
+            }
+        }
+    }
+}
