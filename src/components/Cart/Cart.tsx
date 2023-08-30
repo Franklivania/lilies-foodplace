@@ -46,7 +46,6 @@ export default function Cart({closeCart, className, setOpenCheckout}: CartTypes)
                                         text="Remove"
                                         className="remove"
                                         onClick={() => handleRemove(item)}
-                                        children=''
                                     />
                                 </span>
                             </td>

@@ -12,6 +12,7 @@ type SideNavTypes = {
 
 export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
     const [expand, setExpand] = useState(false)
+    const {orderedItems} = useContext(MealsContext)
 
     useEffect(() => {
         const storedExpand = localStorage.getItem('expand');
@@ -74,7 +75,12 @@ export default function SideNav({openContent, setOpenContent}: SideNavTypes) {
                 onClick={() => handleOpen(2)}
                 className='db-btn orders'
                 isActive={openContent === 2}
-            />
+            >
+                {orderedItems > 0 && (
+                    <span className="cart-order">{orderedItems}</span>
+                )}
+            </ToggleButton>
+            
             <ToggleButton
                 icon='fa-solid fa-bookmark'
                 text={expand ? 'Cart' : ''}

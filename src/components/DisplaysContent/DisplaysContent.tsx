@@ -6,6 +6,7 @@ import FoodInfo from '../FoodInfo/FoodInfo'
 import Cart from '../Cart/Cart'
 import './DisplaysContent.scss'
 import Checkout from '../Checkout/Checkout'
+import Orders from '../Orders/Orders'
 
 type DisplaysContentType = {
     openContent: number
@@ -55,6 +56,13 @@ export default function DisplaysContent({openContent, setOpenContent}: DisplaysC
             closeCheck={() => setOpenCheckout(!openCheckout)}
             className={openCheckout ? 'active-checkout' : ''}
         />
+
+        {openContent === 2 && (
+            <Orders
+                closeOrders={() => setOpenContent(0)}
+                items={meals.map((item:any) => item.meal)}             
+            />
+        )}
     </main>
   )
 }

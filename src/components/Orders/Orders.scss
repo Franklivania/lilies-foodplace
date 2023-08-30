@@ -1,0 +1,101 @@
+@import '../../App.scss';
+
+#orders{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    background: rgba($gray, 0.5);
+    z-index: 99;
+
+    main{
+        position: absolute;
+        right: 0;
+        width: calc($width * 0.5);
+        height: 100%;
+        background: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2em;
+        gap: 2em;
+
+        @media screen and (max-width: 600px) {
+            width: 100%;
+        }
+        @media screen and (min-width: 600px) and (max-width: 1000px) {
+            width: 70%;
+        }
+
+        h3{
+            font-weight: 600;
+            color: $green;
+            margin:  2em 0 0 0;
+        }
+
+        .close-btn{
+            position: absolute;
+            top: 5%;
+            left: 5%;
+        }
+
+        table{
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+                
+            tr{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                th{
+                    font-weight: 500;
+                }
+
+                td{
+                    font-weight: 700;
+                    color: $green;
+
+                    .delivered{
+                        color: $lt-green;
+                    }
+
+                    .cooking{
+                        color: $red;
+                    }
+                }
+
+                #status{
+                    width: 10%;
+                }
+
+                .items{
+                    width: 40%;
+                    display: flex;
+                    align-items: center;
+                    align-self: flex-start;
+                    text-align: left;
+                    gap: 1em;
+
+                    img{
+                        width: calc($wk-width * 0.05);
+                    }
+
+                    span{
+                        line-height: 1em;
+                    }
+
+                    .remove{
+                        color: $red;
+                        font-size: calc($small-text * 1.5);
+                    }
+                }
+            }
+        }
+    }
+}

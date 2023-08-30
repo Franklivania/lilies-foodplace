@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { MealsContext } from '../Context/Context'
 import FormInput from '../FormInput/FormInput'
 import ToggleButton from '../ToggleButton/ToggleButton'
 import './Checkout.scss'
@@ -8,6 +10,14 @@ interface CheckoutTypes {
 }
 
 export default function Checkout({closeCheck, className}:CheckoutTypes) {
+    const { meals, addToOrderedItems } = useContext(MealsContext)
+
+    function handlePayment(e:MouseEvent){
+        e.preventDefault()
+        const orderedItems = meals.reduce((total, meal) => total + meal.count, 0)
+        addToOrderedItems(orderedItems)
+    }
+
   return (
     <div id='checkout' className={className}>
         <main>
@@ -28,6 +38,7 @@ export default function Checkout({closeCheck, className}:CheckoutTypes) {
                 <ToggleButton
                     text='Make Payment'
                     className='checkout-pay'
+                    onClick={handlePayment}
                 />
             </form>
         </main>

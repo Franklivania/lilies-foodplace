@@ -60,6 +60,7 @@
         gap: 1em;
 
         .db-btn{
+            position: relative;
             gap: 1em;
             width: 100%;
             padding: 1em;
@@ -76,19 +77,17 @@
                 color: $black;
             }
         }
-
-        .cart{
-            position: relative;
-        }
-
-        .cart-count{
+        .cart-count, .cart-order{
             position: absolute;
             top: 20%;
             right: 5%;
             background: $cream;
-            color: $black;
+            color: $green;
             padding: .3em .5em;
             border-radius: $small-radius;
+        }
+        .cart-order{
+            background: $lt-green;
         }
     }
 
