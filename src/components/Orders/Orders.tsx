@@ -43,6 +43,12 @@ export default function Orders({closeOrders, className}: OrdersProps) {
   return (
     <div id='orders' className={className}>
         <main ref={orderRef}>
+
+            <ToggleButton
+                onClick={closeOrders}
+                icon='fa-solid fa-x fa-2x'
+                className='close-btn'
+            />
             <h3>Orders</h3>
 
             <table>
